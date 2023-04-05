@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/anaSayfaFragment"
+        android:icon="@drawable/anasayfa_resim"
+        android:title="Ana Sayfa"></item>
+
+    <item
+        android:id="@+id/sepetFragment"
+        android:icon="@drawable/sepet_resim"
+        android:title="Sepetim"></item>
+
+
+</menu>
