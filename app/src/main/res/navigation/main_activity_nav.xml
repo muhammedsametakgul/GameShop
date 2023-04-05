@@ -22,5 +22,17 @@
         <argument
             android:name="oyun"
             app:argType="com.example.oyunmagazasi.data.Oyunlar" />
+        <action
+            android:id="@+id/toSepet"
+            app:destination="@id/sepetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sepetFragment"
+        android:name="com.example.oyunmagazasi.ui.fragment.SepetFragment"
+        android:label="fragment_sepet"
+        tools:layout="@layout/fragment_sepet" >
+        <argument
+            android:name="sepet"
+            app:argType="com.example.oyunmagazasi.data.Oyunlar" />
     </fragment>
 </navigation>

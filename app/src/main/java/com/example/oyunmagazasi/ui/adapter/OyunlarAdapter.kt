@@ -27,15 +27,19 @@ class OyunlarAdapter(var mContext: Context,var oyunlarListesi:List<Oyunlar>)
     override fun onBindViewHolder(holder: HolderClass, position: Int) {
     val oyun=oyunlarListesi.get(position)
         val t=holder.binding
+        var ad=oyun.adi
+        var id =oyun.id
+        var yapimci=oyun.firma
+        var yil=oyun.yil
+        var oyunResim=oyun.resimAdi
+        var fiyat=oyun.fiyat
         t.imageViewOyun.setImageResource(mContext.resources.getIdentifier(oyun.resimAdi,"drawable",mContext.packageName))
         t.textViewAd.text=oyun.adi
-        t.textViewFiyat.text="${oyun.fiyat.toString()} TL"
+        t.textViewFiyat.text=oyun.fiyat.toString()
         t.buttonSepeteEkle.setOnClickListener {
-            Snackbar.make(it,"${oyun.adi} Sepete Eklendi",Snackbar.LENGTH_LONG).show()
-        }
-        t.cardViewOyun.setOnClickListener {
             val gecis=AnaSayfaFragmentDirections.toDetay(oyun = oyun)
             Navigation.findNavController(it).navigate(gecis)
         }
+
     }
 }

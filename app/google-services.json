@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "634688105075",
+    "project_id": "gameshop-1e3df",
+    "storage_bucket": "gameshop-1e3df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634688105075:android:8660028a801d94659a1806",
+        "android_client_info": {
+          "package_name": "com.example.oyunmagazasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634688105075-nirbovol94752jfve3qr4vqfmiklorpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALISS4XBW88nqi32AB5M-gfp4WF5eSxFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634688105075-nirbovol94752jfve3qr4vqfmiklorpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
