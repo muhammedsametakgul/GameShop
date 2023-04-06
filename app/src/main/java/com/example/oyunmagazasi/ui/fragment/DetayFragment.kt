@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.squareup.picasso.Picasso
 
 
 class DetayFragment : Fragment() {
@@ -47,7 +48,7 @@ class DetayFragment : Fragment() {
         var fiyat=gelenOyun.fiyat
 
         binding.toolbar.title=gelenOyun.adi
-        binding.ivOyunResim.setImageResource(resources.getIdentifier(gelenOyun.resimAdi,"drawable",requireContext().packageName))
+        Picasso.get().load(gelenOyun.resimAdi).into(binding.ivOyunResim)
         binding.tvYapimci.text=gelenOyun.firma
         binding.tvYil.text=gelenOyun.yil.toString()
         binding.tvFiyat.text=gelenOyun.fiyat.toString()

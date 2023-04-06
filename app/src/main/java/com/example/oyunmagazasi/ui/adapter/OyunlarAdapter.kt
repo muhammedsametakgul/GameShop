@@ -3,12 +3,14 @@ package com.example.oyunmagazasi.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oyunmagazasi.data.Oyunlar
 import com.example.oyunmagazasi.databinding.CardTasarimBinding
 import com.example.oyunmagazasi.ui.fragment.AnaSayfaFragmentDirections
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 
 class OyunlarAdapter(var mContext: Context,var oyunlarListesi:List<Oyunlar>)
     :RecyclerView.Adapter<OyunlarAdapter.HolderClass>() {
@@ -25,17 +27,15 @@ class OyunlarAdapter(var mContext: Context,var oyunlarListesi:List<Oyunlar>)
     }
 
     override fun onBindViewHolder(holder: HolderClass, position: Int) {
-    val oyun=oyunlarListesi.get(position)
+         val oyun=oyunlarListesi.get(position)
         val t=holder.binding
-        var ad=oyun.adi
-        var id =oyun.id
-        var yapimci=oyun.firma
-        var yil=oyun.yil
-        var oyunResim=oyun.resimAdi
-        var fiyat=oyun.fiyat
-        t.imageViewOyun.setImageResource(mContext.resources.getIdentifier(oyun.resimAdi,"drawable",mContext.packageName))
         t.textViewAd.text=oyun.adi
         t.textViewFiyat.text=oyun.fiyat.toString()
+        if(oyun.resimAdi !=null){
+            Picasso.get().load(oyun.resimAdi).into(t.imageViewOyun)
+        }else{
+            Toast.makeText(mContext,"Resim Yükle Hata",Toast.LENGTH_LONG).show()
+        }
         t.buttonSepeteEkle.setOnClickListener {
             val gecis=AnaSayfaFragmentDirections.toDetay(oyun = oyun)
             Navigation.findNavController(it).navigate(gecis)
