@@ -32,12 +32,6 @@ class DetayFragment : Fragment() {
     ): View? {
         binding= FragmentDetayBinding.inflate(inflater,container,false)
 
-
-
-
-
-
-
         val bundle:DetayFragmentArgs by navArgs()
         val gelenOyun = bundle.oyun
         var ad=gelenOyun.adi
@@ -53,7 +47,7 @@ class DetayFragment : Fragment() {
         binding.tvYil.text=gelenOyun.yil.toString()
         binding.tvFiyat.text=gelenOyun.fiyat.toString()
         binding.btnSepeteEkle.setOnClickListener {
-            Snackbar.make(it,"${gelenOyun.adi} sepete eklendi",Snackbar.LENGTH_LONG).show()
+
           //  val gecis=DetayFragmentDirections.toSepet(sepet = gelenOyun)
            // Navigation.findNavController(it).navigate(gecis)
 
@@ -76,7 +70,7 @@ class DetayFragment : Fragment() {
                 paylasilanMap.put("firma",gelenOyun.firma)
 
 
-                db.collection("Sepetim").add(paylasilanMap).addOnCompleteListener {task->
+                db.collection("Sepetim").document(gelenOyun.adi).set(paylasilanMap).addOnCompleteListener {task->
                     if(task.isSuccessful){
                         //Log.e("Ekleme","Başarıyla Eklendi")
                     }

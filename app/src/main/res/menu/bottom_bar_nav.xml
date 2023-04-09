@@ -10,5 +10,9 @@
         android:icon="@drawable/sepet_resim"
         android:title="Sepetim"></item>
 
+    <item
+    android:id="@+id/profilFragment"
+    android:icon="@drawable/profil_resim"
+    android:title="Profilim"></item>
 
 </menu>

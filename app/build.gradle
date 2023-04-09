@@ -55,4 +55,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx'
 
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.6.1"
+    implementation "androidx.activity:activity-ktx:1.7.0"
+
 }

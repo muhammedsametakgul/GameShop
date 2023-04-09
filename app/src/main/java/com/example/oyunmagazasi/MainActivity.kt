@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.sepetFragment)
                     true
                 }
+                R.id.profilFragment -> {
+                    navController.navigate(R.id.profilFragment2)
+                    true
+                }
                 else -> false
             }
         }}

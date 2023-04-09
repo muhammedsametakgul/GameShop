@@ -13,6 +13,9 @@
         <action
             android:id="@+id/toDetay"
             app:destination="@id/detayFragment" />
+        <action
+            android:id="@+id/toProfil"
+            app:destination="@id/profilFragment2" />
     </fragment>
     <fragment
         android:id="@+id/detayFragment"
@@ -34,5 +37,13 @@
         <argument
             android:name="sepet"
             app:argType="com.example.oyunmagazasi.data.Oyunlar" />
+        <action
+            android:id="@+id/toAnaSayfa"
+            app:destination="@id/anaSayfaFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profilFragment2"
+        android:name="com.example.oyunmagazasi.ui.fragment.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
 </navigation>
