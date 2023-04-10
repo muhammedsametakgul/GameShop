@@ -45,5 +45,18 @@
         android:id="@+id/profilFragment2"
         android:name="com.example.oyunmagazasi.ui.fragment.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil" />
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/toUpdate"
+            app:destination="@id/profileUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileUpdateFragment"
+        android:name="com.example.oyunmagazasi.ui.fragment.ProfileUpdateImageFragment"
+        android:label="fragment_profile_update"
+        tools:layout="@layout/fragment_profileimage_update" >
+        <action
+            android:id="@+id/action_profileUpdateFragment_to_profilFragment2"
+            app:destination="@id/profilFragment2" />
+    </fragment>
 </navigation>

@@ -29,7 +29,7 @@ class FavorilerAdapter(var mContext:Context,var list:List<Favoriler>):RecyclerVi
         val fav=list.get(position)
         val t = holder.binding
         t.textViewOyunAd.text=fav.oyunAdi
-        t.textViewOyunFiyat.text=fav.fiyat.toString()
+        t.textViewOyunFiyat.text="${fav.fiyat.toString()} ₺"
         if(fav.gorselUrl !=null){
             Picasso.get().load(fav.gorselUrl).into(t.imageViewOyunResim)
         }

@@ -7,13 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="profile_renk">#0C0C0C</color>
-
+    <color name="profile_renk">#FFFFFF</color>
     <color name="sepet">#EDEDED</color>
     <color name="sepetItem1">#3F9EEA</color>
     <color name="sepetItem2">#8ABEE6</color>
     <color name="yazi">#FFFFFF</color>
-    <color name="bottom">#000000</color>
+    <color name="bottom">#FFFFFF</color>
     <color name="button">#76C0F8</color>
     <color name="topbar1">#71B5EA</color>
     <color name="topbar2">#147ED3</color>

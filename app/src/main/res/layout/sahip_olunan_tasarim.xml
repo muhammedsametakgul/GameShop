@@ -15,7 +15,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/sepet">
+            android:background="@color/oyunlarAna"
+            >
 
             <ImageView
                 android:id="@+id/imageViewOyunResim"
@@ -37,6 +38,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:text="CS Go"
+                android:textColor="@color/yazi"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageViewOyunResim"
@@ -49,7 +51,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:text="123 TL"
-                android:textColor="@color/black"
+                android:textColor="@color/yazi"
                 android:textSize="22sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintStart_toEndOf="@+id/imageViewOyunResim"

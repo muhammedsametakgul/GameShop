@@ -55,7 +55,7 @@ class SepetFragment : Fragment() {
                                 var indirilenOyun =Sepet(id,oyunAdi,fiyat,gorselUrl)
                                 list.add(indirilenOyun)
                                 toplam += document.get("fiyat").toString().toDouble()
-                               binding.toplamFiyat.text="Toplam : ${toplam.toString()}"
+                               binding.toplamFiyat.text="Toplam : ${toplam.toString()} ₺"
                                 //Log.e("Fiyat Toplam" ,toplam.toString())
 
                                 adapter.notifyDataSetChanged()

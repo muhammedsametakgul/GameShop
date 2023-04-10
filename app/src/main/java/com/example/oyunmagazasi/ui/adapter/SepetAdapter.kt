@@ -40,7 +40,7 @@ class SepetAdapter (var mContext:Context,var sepetList:List<Sepet>):RecyclerView
         val sepet=sepetList.get(position)
         val t = holder.binding
         t.textViewOyunAd.text=sepet.adi
-        t.textViewOyunFiyat.text=sepet.fiyat.toString()
+        t.textViewOyunFiyat.text="${sepet.fiyat.toString()} ₺"
         toplamFiyat += sepet.fiyat
         if(sepet.gorselUrl !=null){
             Picasso.get().load(sepet.gorselUrl).into(t.imageViewOyunResim)

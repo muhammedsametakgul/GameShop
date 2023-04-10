@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.oyunmagazasi.R
-import com.example.oyunmagazasi.data.Favoriler
 import com.example.oyunmagazasi.data.Oyunlar
 import com.example.oyunmagazasi.data.Sepet
 import com.example.oyunmagazasi.databinding.FragmentAnaSayfaBinding
@@ -51,6 +49,8 @@ class AnaSayfaFragment : Fragment() {
                             var indirilenOyun = Oyunlar(id,oyunAdi,gorselUrl,yil,fiyat,firma)
                             oyunlarListesi.add(indirilenOyun)
 
+
+
                         }
                         adapter.notifyDataSetChanged()
 
@@ -68,7 +68,6 @@ class AnaSayfaFragment : Fragment() {
 
         return  binding.root
     }
-    fun favOku(fiyat:Double,adi:String,dowloadurl:String,id:Int,yil:Int,firma:String){
-    }
+
   }
 

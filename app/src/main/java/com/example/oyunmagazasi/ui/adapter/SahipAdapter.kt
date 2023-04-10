@@ -31,7 +31,7 @@ class SahipAdapter(var mContext:Context,var list:List<Sahip>):RecyclerView.Adapt
        val gelen=list.get(position)
         val t =holder.binding
         t.textViewOyunAd.text=gelen.oyunAdi
-        t.textViewOyunFiyat.text=gelen.fiyat.toString()
+        t.textViewOyunFiyat.text="${gelen.fiyat.toString()} ₺"
         if(gelen.gorselUrl !=null){
             Picasso.get().load(gelen.gorselUrl).into(t.imageViewOyunResim)
         }

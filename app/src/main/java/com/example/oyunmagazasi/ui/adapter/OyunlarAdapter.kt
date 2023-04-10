@@ -3,6 +3,7 @@ package com.example.oyunmagazasi.ui.adapter
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
@@ -37,13 +38,29 @@ class OyunlarAdapter(var mContext: Context,var oyunlarListesi:List<Oyunlar>)
          val oyun=oyunlarListesi.get(position)
         val t=holder.binding
         t.textViewAd.text=oyun.adi
-        t.textViewFiyat.text=oyun.fiyat.toString()
+        t.textViewFiyat.text="${oyun.fiyat.toString()} ₺"
         if(oyun.resimAdi !=null){
             Picasso.get().load(oyun.resimAdi).into(t.imageViewOyun)
         }else{
             Toast.makeText(mContext,"Resim Yükle Hata",Toast.LENGTH_LONG).show()
         }
 
+        val belgeRef = db.collection("Favoriler").document(oyun.adi)
+        belgeRef.get().addOnSuccessListener { belge ->
+            if (belge != null && belge.exists()) {
+                // Belge alındı
+
+                t.imageViewFav.setImageResource(mContext.resources.getIdentifier("fav_resim","drawable",mContext.packageName))
+
+
+            }else{
+                t.imageViewFav.setImageResource(mContext.resources.getIdentifier("unfav_resim","drawable",mContext.packageName))
+
+            }
+
+        }.addOnFailureListener {
+
+        }
         t.buttonSepeteEkle.setOnClickListener {
             val gecis=AnaSayfaFragmentDirections.toDetay(oyun = oyun)
             Navigation.findNavController(it).navigate(gecis)
@@ -51,7 +68,7 @@ class OyunlarAdapter(var mContext: Context,var oyunlarListesi:List<Oyunlar>)
         t.imageViewFav.setOnClickListener {
 
         if(sayac %2 !=0){
-            t.imageViewFav.setImageResource(mContext.resources.getIdentifier("fav_resim","drawable",mContext.packageName))
+            t.imageViewFav.setImageResource(mContext.resources.getIdentifier("unfav_resim","drawable",mContext.packageName))
 
             db.collection("Favoriler").document(oyun.adi)
                 .delete()
