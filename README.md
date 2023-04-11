@@ -7,7 +7,7 @@ I have made this application to learn Firebase and Navigation Component better.
 
 
 
-<h1>Libraries Used</h1>
+<h1>Libraries and Technologies Used</h1>
 
 [ViewBinding][1] : View binding is a feature that makes it easier to write code that interacts with views
 
@@ -20,6 +20,8 @@ I have made this application to learn Firebase and Navigation Component better.
 [Firebase Firestore][5] : Firebase offers two cloud-based, client-accessible database solutions that support realtime data syncing: Cloud Firestore is Firebase's newest database for mobile app development
 
 [Picasso][6] : A powerful image downloading and caching library for Android.
+
+[Splash Screen][7] : The splash screen experience brings standard design elements to every app launch, but it's also customizable so your app can maintain its unique branding.
 
 
 
@@ -53,3 +55,4 @@ https://user-images.githubusercontent.com/93324656/231283332-ed84a41d-4533-455a-
 [4]:https://firebase.google.com/docs/storage/android/start
 [5]:https://firebase.google.com/docs/database/android/start
 [6]:https://github.com/square/picasso
+[7]:https://developer.android.com/develop/ui/views/launch/splash-screen
