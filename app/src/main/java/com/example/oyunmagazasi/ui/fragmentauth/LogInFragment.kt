@@ -46,15 +46,19 @@ class LogInFragment : Fragment() {
         binding.btnGirisYap.setOnClickListener {
             val email=binding.txtmail.text.toString()
             val sifre=binding.txtSifre.text.toString()
-            auth.signInWithEmailAndPassword(email,sifre).addOnCompleteListener {task->
-            if(task.isSuccessful){
-                val guncel=auth.currentUser?.email.toString()
-                Toast.makeText(requireContext(),"Hoşgeldin : ${guncel}",Toast.LENGTH_SHORT).show()
-                val intent= Intent(requireContext(),MainActivity::class.java)
-                startActivity(intent)
-            }
+          if(email != null && sifre != null){
+              auth.signInWithEmailAndPassword(email,sifre).addOnCompleteListener {task->
+                  if(task.isSuccessful){
+                      val guncel=auth.currentUser?.email.toString()
+                      Toast.makeText(requireContext(),"Hoşgeldin : ${guncel}",Toast.LENGTH_SHORT).show()
+                      val intent= Intent(requireContext(),MainActivity::class.java)
+                      startActivity(intent)
+                  }
 
-            }
+              }
+          }else{
+              Toast.makeText(requireContext(),"Lütfen mail veya şifrenizi giriniz",Toast.LENGTH_LONG).show()
+          }
         }
         val guncelKullanici =auth.currentUser
         if(guncelKullanici !=null){

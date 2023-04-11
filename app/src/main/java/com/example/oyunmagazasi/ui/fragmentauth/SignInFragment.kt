@@ -32,35 +32,39 @@ class SignInFragment : Fragment() {
             val sifre=binding.txtSifre.text.toString()
             val sifreYeniden=binding.txtSifreYeniden.text.toString()
             val userName=binding.txtUsername.text.toString()
-            if(sifre == sifreYeniden){
-                auth.createUserWithEmailAndPassword(email,sifre).addOnCompleteListener {task->
-                    if(task.isSuccessful){
-                        Toast.makeText(requireContext(),"Başarıyla oluşturuldu",Toast.LENGTH_SHORT).show()
+           if(email != null && sifre != null && sifreYeniden!=null && userName != null){
+               if(sifre == sifreYeniden){
+                   auth.createUserWithEmailAndPassword(email,sifre).addOnCompleteListener {task->
+                       if(task.isSuccessful){
+                           Toast.makeText(requireContext(),"Başarıyla oluşturuldu",Toast.LENGTH_SHORT).show()
 
 
-                        val paylasilanMap= hashMapOf<String,Any>()
-                        paylasilanMap.put("gorselUrl","a")
-                        paylasilanMap.put("username",userName)
+                           val paylasilanMap= hashMapOf<String,Any>()
+                           paylasilanMap.put("gorselUrl","a")
+                           paylasilanMap.put("username",userName)
 
 
 
-                        db.collection("Profil").document(email).set(paylasilanMap).addOnCompleteListener {task->
-                            if(task.isSuccessful){
-                                //Log.e("Ekleme","Başarıyla Eklendi")
-                            }
-                        }.addOnFailureListener {exp->
-                            //Log.e("Hata",exp.toString())
+                           db.collection("Profil").document(email).set(paylasilanMap).addOnCompleteListener {task->
+                               if(task.isSuccessful){
+                                   Toast.makeText(requireContext(),"Kullanıcı Başarıyla Oluşturuldu",Toast.LENGTH_SHORT).show()
+                               }
+                           }.addOnFailureListener {exp->
+                               //Log.e("Hata",exp.toString())
 
-                        }
-                        val intent=Intent(requireContext(),MainActivity::class.java)
-                        startActivity(intent)
-                    }
-                }.addOnFailureListener {er->
-                Toast.makeText(requireContext(),er.toString(),Toast.LENGTH_LONG).show()
+                           }
+                           val intent=Intent(requireContext(),MainActivity::class.java)
+                           startActivity(intent)
+                       }
+                   }.addOnFailureListener {er->
+                       Toast.makeText(requireContext(),er.toString(),Toast.LENGTH_LONG).show()
 
-                }
-            }
+                   }
+               }
 
+           }else{
+               Toast.makeText(requireContext(),"Lütfen tüm alanları doldurunuz",Toast.LENGTH_SHORT).show()
+           }
 
 
 
