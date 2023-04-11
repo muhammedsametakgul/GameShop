@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/topbar1"
+        android:backgroundTint="@color/topbar2"
         android:text="Giriş Yap"
         android:textColor="@color/yazi"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,15 +72,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginBottom="340dp"
+        android:layout_marginTop="48dp"
         android:clickable="true"
         android:text="Şifremi unuttum"
         android:textColor="@color/button"
         android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnGirisYap" />
+        app:layout_constraintStart_toEndOf="@+id/btnGirisYap"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
     <TextView
         android:id="@+id/textViewOlustur"
