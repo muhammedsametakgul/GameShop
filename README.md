@@ -1,5 +1,11 @@
 # GameShop
-I have made this application to learn Firebase and Navigation Companent better.
+//TR ->
+Bu uygulamayı Firebase ve Navigation Component'i daha iyi öğrenmek için yaptım
+
+//ENG ->
+I have made this application to learn Firebase and Navigation Component better.
+
+
 
 <h1>Libraries Used</h1>
 
@@ -17,8 +23,19 @@ I have made this application to learn Firebase and Navigation Companent better.
 
 
 
+<h1>Screenshots</h1>
+<p float="left">
+  <img src="/screenshot/login.jpg" width="250" heigth="250" /> 
+  <img src="/screenshot/signin.jpg" width="250" heigth="250" /> 
+  <img src="/screenshot/anasayfa.jpg" width="250" heigth="250" /> 
+  <img src="/screenshot/sepet.jpg" width="250" heigth="250" /> 
+  <img src="/screenshot/kutuphane.jpg" width="250" heigth="250" /> 
+  <img src="/screenshot/favoriler.jpg" width="250" heigth="250" /> 
+</p>
 
+<h1>Demo Video</h1>
 
+https://user-images.githubusercontent.com/93324656/231283332-ed84a41d-4533-455a-90f4-937204d9ffd8.mp4
 
 
 
