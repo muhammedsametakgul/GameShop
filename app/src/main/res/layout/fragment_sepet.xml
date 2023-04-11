@@ -56,7 +56,9 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Satın Al" />
+            android:backgroundTint="@color/topbar2"
+            android:text="Satın Al"
+            android:textColor="@color/yazi" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

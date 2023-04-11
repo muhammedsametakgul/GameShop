@@ -50,14 +50,14 @@ class ProfilFragment : Fragment() {
             veriGetirSahip()
             adapterSahip = SahipAdapter(requireContext(),list)
             binding.rvprofile.adapter = adapterSahip
-            binding.textViewBaslik.text="Kütüphanenizdeki Oyunlar"
+            binding.textViewBaslik.text="Kütüphane"
 
         }
         binding.chipFav.setOnClickListener {
             veriGetirFav()
             adapterFav = FavorilerAdapter(requireContext(),list2)
             binding.rvprofile.adapter = adapterFav
-            binding.textViewBaslik.text="Favori Oyunlar"
+            binding.textViewBaslik.text="Favoriler"
         }
 
         binding.cikis.setOnClickListener {

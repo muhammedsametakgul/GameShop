@@ -11,10 +11,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvprofile"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="370dp"
+        android:layout_marginTop="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBaslik" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -44,7 +46,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:textColor="@color/profile_renk"
-            android:textSize="22sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageViewKullanici"
             app:layout_constraintTop_toTopOf="parent" />
@@ -136,8 +138,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:text="Kütüphanedeki Oyunlar"
+        android:layout_marginTop="12dp"
+        android:text="Kütüphane"
         android:textColor="@color/profile_renk"
         android:textSize="25sp"
         android:textStyle="bold|italic"

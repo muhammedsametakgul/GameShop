@@ -2,6 +2,7 @@ package com.example.oyunmagazasi.ui.fragmentauth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,22 @@ class LogInFragment : Fragment() {
         auth= Firebase.auth
        binding =FragmentLogInBinding.inflate(inflater,container,false)
 
-
+        binding.textViewSifre.setOnClickListener {
+          if (binding.txtmail.text.toString() !=""){
+              auth.sendPasswordResetEmail(binding.txtmail.text.toString())
+                  .addOnCompleteListener { task ->
+                      if (task.isSuccessful) {
+                          // E-posta başarıyla gönderildi
+                          Toast.makeText(requireContext(),"Mail Gönderildi",Toast.LENGTH_SHORT).show()
+                      } else {
+                          // Hata oluştu
+                          Toast.makeText(requireContext(),"Mail Gönderilemedi. HATA",Toast.LENGTH_SHORT).show()
+                      }
+                  }
+          }else{
+              Toast.makeText(requireContext(),"Lütfen yukarıdaki mail kısmını doldurunuz",Toast.LENGTH_LONG).show()
+          }
+        }
 
         binding.btnGirisYap.setOnClickListener {
             val email=binding.txtmail.text.toString()

@@ -1,5 +1,6 @@
 package com.example.oyunmagazasi.ui.fragment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -68,23 +69,36 @@ class SepetFragment : Fragment() {
         binding.buttonSatinAl.setOnClickListener {
         try {
             getVeri()
-
-            val collectionRef = db.collection("Sepetim")
-
-            collectionRef.get().addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result!!) {
-                        document.reference.delete()
-                    }
-                } else {
-                    Log.d("TAG", "Error getting documents: ", task.exception)
-                }
-
-            }
             if(adapter.itemCount !=0){
-                val gecis=SepetFragmentDirections.toAnaSayfa()
-                Navigation.findNavController(it).navigate(gecis)
+                val alertDialogBuilder = AlertDialog.Builder(requireContext())
+                alertDialogBuilder.setTitle("Satın Al")
+                alertDialogBuilder.setMessage("Satın almak istediğinize emin misiniz?")
+                alertDialogBuilder.setPositiveButton("Evet") { _, _ ->
+                    // Satın alma işlemi gerçekleştirilir
+                    Toast.makeText(requireContext(), "Satın alındı!", Toast.LENGTH_SHORT).show()
+                    val collectionRef = db.collection("Sepetim")
+
+                    collectionRef.get().addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            for (document in task.result!!) {
+                                document.reference.delete()
+                            }
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.exception)
+                        }
+
+                    }
+                    val gecis=SepetFragmentDirections.toAnaSayfa()
+                    Navigation.findNavController(it).navigate(gecis)
+                }
+                alertDialogBuilder.setNegativeButton("Hayır") { _, _ ->
+                    // Kullanıcının "Hayır" seçeneğine tıklaması durumunda hiçbir işlem yapılmaz
+                    binding.buttonSatinAl.isEnabled=true
+                }
+                alertDialogBuilder.show()
             }
+
+
         }catch (exp:java.lang.Exception){
             Toast.makeText(requireContext(),exp.toString(),Toast.LENGTH_LONG).show()
         }
@@ -119,7 +133,7 @@ class SepetFragment : Fragment() {
 
                             db.collection("Sahip").document(oyunAdi).set(satinAlMap).addOnCompleteListener {task->
                                 if(task.isSuccessful){
-                                    Toast.makeText(requireContext(),"Başarılı",Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(requireContext(),"Başarılı",Toast.LENGTH_SHORT).show()
                                 }
                             }.addOnFailureListener {exp->
                                 Toast.makeText(requireContext(),"HATA",Toast.LENGTH_SHORT).show()

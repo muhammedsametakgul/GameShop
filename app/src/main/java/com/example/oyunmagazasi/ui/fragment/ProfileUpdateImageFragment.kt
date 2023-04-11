@@ -53,59 +53,69 @@ class ProfileUpdateImageFragment : Fragment() {
 
 
         binding.buttonGuncelle.setOnClickListener {
+        if(binding.etUsernameUpdate!=null ){
+            if(secilenGorsel !=null){
+                val user = Firebase.auth.currentUser
+                user?.let {fire->
 
-               val user = Firebase.auth.currentUser
-               user?.let {
+                    val email = fire!!.email.toString()
+                    val reference = storage.reference
+                    val gorselReferansi = reference.child("User").child(email.toString())
+                    gorselReferansi.putFile(secilenGorsel!!).addOnSuccessListener { task ->
+                        val yuklenenGorselReferans = reference.child("User").child(email.toString())
+                        yuklenenGorselReferans.downloadUrl.addOnSuccessListener { uri ->
+                            var downloadurl = uri.toString()
+                            val belgeRef = db.collection("Profil").document(email)
+                            belgeRef.get().addOnSuccessListener { belge ->
+                                if (belge != null && belge.exists()) {
+                                    // Belge alındı
+                                    var url = downloadurl
+                                    belgeRef.update("gorselUrl", url)
+                                        .addOnSuccessListener {void->
+                                            Toast.makeText(requireContext(),"Güncellendi",Toast.LENGTH_LONG).show()
 
-                   val email = it!!.email.toString()
-                   val reference = storage.reference
-                   val gorselReferansi = reference.child("User").child(email.toString())
-                   gorselReferansi.putFile(secilenGorsel!!).addOnSuccessListener { task ->
-                       val yuklenenGorselReferans = reference.child("User").child(email.toString())
-                       yuklenenGorselReferans.downloadUrl.addOnSuccessListener { uri ->
-                           var downloadurl = uri.toString()
-                           val belgeRef = db.collection("Profil").document(email)
-                           belgeRef.get().addOnSuccessListener { belge ->
-                               if (belge != null && belge.exists()) {
-                                   // Belge alındı
-                                   var url = downloadurl
-                                   belgeRef.update("gorselUrl", url)
-                                       .addOnSuccessListener {
-                                           Toast.makeText(requireContext(),"Güncellendi",Toast.LENGTH_LONG).show()
-                                       }
-                                       .addOnFailureListener { hata ->
-                                           Toast.makeText(requireContext(),"HATA",Toast.LENGTH_LONG).show()
-                                       }
-                               } else {
-                                   Toast.makeText(requireContext(),"HATA2",Toast.LENGTH_LONG).show()
-                               }
-                           }
-                       }.addOnFailureListener {
-                           Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
-                       }
-                   }.addOnFailureListener {
-                       Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
-                   }
-                   val belgeRef = db.collection("Profil").document(email)
-                   belgeRef.get().addOnSuccessListener { belge ->
-                       if (belge != null && belge.exists()) {
-                           // Belge alındı
-                           var yeniKullaniciAdi = binding.etUsernameUpdate.text.toString()
-                           belgeRef.update("username", yeniKullaniciAdi)
-                               .addOnSuccessListener {
-                                   Toast.makeText(requireContext(),"Güncellendi",Toast.LENGTH_LONG).show()
-                               }
-                               .addOnFailureListener { hata ->
-                                   Toast.makeText(requireContext(),"HATA",Toast.LENGTH_LONG).show()
-                               }
-                       } else {
-                           Toast.makeText(requireContext(),"HATA2",Toast.LENGTH_LONG).show()
-                       }
-                   }
+                                        }
+                                        .addOnFailureListener { hata ->
+                                            Toast.makeText(requireContext(),"HATA",Toast.LENGTH_LONG).show()
+                                        }
+                                } else {
+                                    Toast.makeText(requireContext(),"HATA2",Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        }.addOnFailureListener {
+                            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                        }
+                    }.addOnFailureListener {
+                        Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                    }
+                    val belgeRef = db.collection("Profil").document(email)
+                    belgeRef.get().addOnSuccessListener { belge ->
+                        if (belge != null && belge.exists()) {
+                            // Belge alındı
+                            var yeniKullaniciAdi = binding.etUsernameUpdate.text.toString()
+                            belgeRef.update("username", yeniKullaniciAdi)
+                                .addOnSuccessListener {
+                                    Toast.makeText(requireContext(),"Güncellendi",Toast.LENGTH_LONG).show()
+                                }
+                                .addOnFailureListener { hata ->
+                                    Toast.makeText(requireContext(),"HATA",Toast.LENGTH_LONG).show()
+                                }
+                        } else {
+                            Toast.makeText(requireContext(),"HATA2",Toast.LENGTH_LONG).show()
+                        }
+                    }
 
-               }
+                }
                 val gecis=ProfileUpdateImageFragmentDirections.actionProfileUpdateFragmentToProfilFragment2()
-            Navigation.findNavController(it).navigate(gecis)
+                Navigation.findNavController(it).navigate(gecis)
+            }else{
+                Toast.makeText(requireContext(),"Lütfen resim doldurunuz",Toast.LENGTH_LONG).show()
+
+            }
+
+        }else{
+            Toast.makeText(requireContext(),"Lütfen kullanıcı adını doldurunuz",Toast.LENGTH_LONG).show()
+        }
 
            }
 

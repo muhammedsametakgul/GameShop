@@ -17,4 +17,5 @@
     <color name="topbar1">#71B5EA</color>
     <color name="topbar2">#147ED3</color>
     <color name="oyunlarAna">#202020</color>
+    <color name="item">#FFFFFF</color>
 </resources>
